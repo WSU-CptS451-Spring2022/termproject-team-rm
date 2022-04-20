@@ -17,7 +17,7 @@ CREATE TABLE business (
 CREATE TABLE yelp_user (
       yelp_user_id CHAR(22) PRIMARY KEY,
       yelp_user_name VARCHAR,
-	  yelping_since date,
+	  yelping_since TIMESTAMP,
 	  rating float,
 	  cool_count INT,
 	  funny_count INT,
@@ -62,7 +62,7 @@ CREATE TABLE business_hour (
 CREATE TABLE tip (
   business_id varchar(22),
    yelp_user_id varchar(22),
-   tip_date date,
+   tip_date TIMESTAMP,
    tip_text text,
    compliment_count int,
   PRIMARY KEY (business_id, yelp_user_id, tip_date),
@@ -77,7 +77,7 @@ CREATE TABLE tip (
 
 CREATE TABLE checkin (
   business_id varchar(22),
-  checkin_date date,
+  checkin_date TIMESTAMP,
   PRIMARY KEY (business_id,checkin_date),
   FOREIGN KEY (business_id) REFERENCES business(business_id)
   ON DELETE CASCADE
